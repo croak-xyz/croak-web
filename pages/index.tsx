@@ -11,6 +11,10 @@ import FeaturesCards from '../components/Homepage/FeaturesCards';
 import GreenBanner from '../components/Homepage/GreenBanner';
 import Footer from '../components/Footer';
 import frog from '../assets/images/main-frog.svg';
+import glip from '../assets/glip.svg';
+import hashed from '../assets/hashed.svg';
+import winzo from '../assets/winzo.svg';
+import polygon from '../assets/polygon.svg';
 import Image from 'next/image';
 
 const Mobile = styled.div`
@@ -90,14 +94,31 @@ const Home: NextPage = () => {
           flexDirection: 'column'
           }}>
             <TrustTitle>TRUSTED by DAPPS, GAMES, FUNDS, CHAINS</TrustTitle>
+
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', justifyItems: 'center', marginTop: 45}}>
+              <div>
+                <Image src={polygon} alt='polygon logo'/>
+              </div>
+              <div style={{marginLeft: 45}}>
+                 <Image src={winzo} alt='winzo logo'/>
+              </div>
+              <div style={{marginLeft: 45}}>
+                 <Image src={hashed} alt='hashed logo'/>
+              </div>
+              <div style={{marginLeft: 45}}>
+                 <Image src={glip} alt='glip logo'/>
+              </div>                                         
+            </div>
             <FeaturesCards />
             <GreenBanner />
-
             <Footer />
         </div>
       </Desktop>
 
       <Mobile>
+        
+        <Navigation />    
+
         <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center', marginTop: 60, width: '100%', flexDirection: 'column'}}>
           <NoBullshit justify={'center'} mobile={true} />
           <Image src={frog} alt='croak frog with ethereum' />
@@ -132,6 +153,22 @@ const Home: NextPage = () => {
           flexDirection: 'column'
           }}>
             <TrustTitle>TRUSTED by DAPPS, GAMES, FUNDS, CHAINS</TrustTitle>
+
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', justifyItems: 'center', marginBottom: 46}}>
+              <div style={{marginLeft: 45, marginTop: 45}}>
+                <Image src={polygon} alt='polygon logo'/>
+              </div>
+              <div style={{marginLeft: 45, marginTop: 45}}>
+                 <Image src={winzo} alt='winzo logo'/>
+              </div>
+              <div style={{marginLeft: 45, marginTop: 45}}>
+                 <Image src={hashed} alt='hashed logo'/>
+              </div>
+              <div style={{marginLeft: 45, marginTop: 45}}>
+                 <Image src={glip} alt='glip logo'/>
+              </div>                                         
+            </div>
+
             <FeaturesCards />
             <br></br>
             <br></br>

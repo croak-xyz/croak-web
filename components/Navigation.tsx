@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 import CroakButton from './CroakButton';
+import SpaceBetween from './FlexComponents/SpaceBetween';
+import hamburger from '../assets/hamburger.svg';
+import Image from 'next/image';
+import { useState } from 'react';
+import Modal from 'rsuite/Modal';
+import twitter from '../assets/twitter.svg';
+import discord from '../assets/discord.svg';
+import github from '../assets/github.svg';
+
+const Mobile = styled.div`
+  display: none;
+  @media only screen and (max-device-width: 480px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+const Desktop = styled.div`
+  display: none;
+  @media (min-device-width: 481px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -66,21 +90,82 @@ const Mail = styled.div`
   opacity: 0.4;
 `;
 
+
+const MobileTitle = styled.div`
+  font-family: 'Graphik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: -0.02em;
+
+  color: #000000;
+  margin-bottom: 56px;
+`;
+
 const Navigation: any = ({ active, onSelect, ...props }: any) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpen = () => {
+    setShowModal(true);
+  };
+  const handleClose = () => setShowModal(false);
+
   return (
-    <Wrapper>
-      <Nav>
-        <Title className={'hover'}>Croak</Title>
-      </Nav>
-      <Nav>
-        <Mail className={'hover'}>help@croak.xyz</Mail>
-        <SubTitle className={'hover'}>Discord</SubTitle>
-        <SubTitle className={'hover'}>Pricing</SubTitle>
-        <SubTitle className={'hover'}>View Docs</SubTitle>
-        <CroakButton style={{marginLeft: 28}} type={'white'} onClick={() => {}} title='Sign In' />
-        <CroakButton style={{marginLeft: 28,}} type={'green'} onClick={() => {}} title='Get free API key' />
-      </Nav>
-    </Wrapper>
+    <>
+      <Mobile>
+        <Modal style={{margin: 0,}} size={'full'} open={showModal} onClose={handleClose}>
+          <div style={{}}>
+
+            <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+              <Image onClick={() => handleClose()} src={hamburger} alt='close modal icon' />
+            </div>
+
+            <div style={{display: 'flex', justifyContent: 'center', alignContent: 'center', flexDirection: 'column'}}>
+              <MobileTitle style={{marginTop: 50, textAlign: 'center'}}>APIs</MobileTitle>
+              <MobileTitle style={{textAlign: 'center'}}>Pricing</MobileTitle>
+              <MobileTitle style={{textAlign: 'center'}}>View docs</MobileTitle>
+            </div>
+            
+            <div style={{display: 'flex', marginTop: 75, justifyContent: 'center', alignContent: 'center', marginBottom: 46}}>
+                <div style={{marginLeft: 18}} >
+                    <Image src={twitter} alt='twitter page link'  />
+                </div>
+                <div style={{marginLeft: 18}}>
+                    <Image src={github} alt='github page link'  />
+                </div>
+                <div style={{marginLeft: 18}}>
+                    <Image src={discord} alt='discord page link' />
+                </div>                        
+            </div>
+
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+              <CroakButton style={{marginLeft: 0}} type={'white'} onClick={() => {}} title='Sign In' />
+              <CroakButton style={{marginLeft: 0, marginTop: 12}} type={'green'} onClick={() => {}} title='Get free API key' />            
+            </div>
+          </div>
+        </Modal>
+        <SpaceBetween direction={'row'} style={{paddingLeft: 16, paddingRight: 16, marginTop: 15}}>
+          <Title className='hover'>CRAOK</Title>
+          <Image src={hamburger} onClick={() => handleOpen()} alt='menu icon' />
+        </SpaceBetween>
+      </Mobile>
+      <Desktop>
+        <Wrapper>
+          <Nav>
+            <Title className={'hover'}>Croak</Title>
+          </Nav>
+          <Nav>
+            <Mail className={'hover'}>help@croak.xyz</Mail>
+            <SubTitle className={'hover'}>Discord</SubTitle>
+            <SubTitle className={'hover'}>Pricing</SubTitle>
+            <SubTitle className={'hover'}>View Docs</SubTitle>
+            <CroakButton style={{marginLeft: 28}} type={'white'} onClick={() => {}} title='Sign In' />
+            <CroakButton style={{marginLeft: 28,}} type={'green'} onClick={() => {}} title='Get free API key' />
+          </Nav>
+        </Wrapper>
+      </Desktop>
+    </>
     
   )
 }

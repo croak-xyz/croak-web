@@ -49,8 +49,8 @@ const NoBullshit: any = ({...props }: any) => {
       }}
       >
         <Blue>ONE LINE SET-UP</Blue>
-        <Heading>No bullshit <br></br>
-            Web3 Infra
+        <Heading>Build & grow 
+            web3 games
         </Heading>
         <div style={{
             display: 'flex',
