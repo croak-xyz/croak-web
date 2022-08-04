@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 
 const Title = styled.div`
-    font-family: 'Graphik';
+    font-family: 'Graphik bold';
     font-style: normal;
     font-weight: 900;
     font-size: 72px;
@@ -36,7 +36,7 @@ const GreenBanner: any = () => {
 
         <Image alt='green-frog-with-ethereum' src={frog} />
 
-        <Title>Build with Croak</Title>
+        <Title>Grow with Croak</Title>
 
         <div
             style={{display: 'flex', justifyContent: 'center', alignContent: 'center'}}

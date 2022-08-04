@@ -8,6 +8,8 @@ import Modal from 'rsuite/Modal';
 import twitter from '../assets/twitter.svg';
 import discord from '../assets/discord.svg';
 import github from '../assets/github.svg';
+import Link from 'next/link';
+import croak from '../assets/images/croak.png';
 
 const Mobile = styled.div`
   display: none;
@@ -41,7 +43,7 @@ const Nav = styled.div`
 
 const Title = styled.div`
   font-family: 'SF Pro Display bold';
-  font-style: normal;
+  font-style: bold;
   font-weight: 900;
   font-size: 23.1777px;
   line-height: 28px;
@@ -122,21 +124,27 @@ const Navigation: any = ({ active, onSelect, ...props }: any) => {
             </div>
 
             <div style={{display: 'flex', justifyContent: 'center', alignContent: 'center', flexDirection: 'column'}}>
-              <MobileTitle style={{marginTop: 50, textAlign: 'center'}}>APIs</MobileTitle>
-              <MobileTitle style={{textAlign: 'center'}}>Pricing</MobileTitle>
-              <MobileTitle style={{textAlign: 'center'}}>View docs</MobileTitle>
+              <Link href='/'><MobileTitle style={{marginTop: 50, textAlign: 'center'}}>Home</MobileTitle></Link>
+              <Link href='/pricing'><MobileTitle style={{textAlign: 'center'}}>Pricing</MobileTitle></Link>
+              <Link href='https://glip.readme.io'><MobileTitle style={{textAlign: 'center'}}>View docs</MobileTitle></Link>
             </div>
-            
+                        
             <div style={{display: 'flex', marginTop: 75, justifyContent: 'center', alignContent: 'center', marginBottom: 46}}>
-                <div style={{marginLeft: 18}} >
-                    <Image src={twitter} alt='twitter page link'  />
-                </div>
-                <div style={{marginLeft: 18}}>
-                    <Image src={github} alt='github page link'  />
-                </div>
-                <div style={{marginLeft: 18}}>
-                    <Image src={discord} alt='discord page link' />
-                </div>                        
+                <Link href=''>
+                    <div style={{marginLeft: 18}} >
+                        <Image src={twitter} alt='twitter page link'  />
+                    </div>
+                </Link>
+                <Link href=''>
+                    <div style={{marginLeft: 18}} >
+                        <Image src={github} alt='github page link'  />
+                    </div>
+                </Link>
+                <Link href=''>
+                    <div style={{marginLeft: 18}} >
+                        <Image src={discord} alt='discord page link' />
+                    </div>
+                </Link>                                        
             </div>
 
             <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -146,22 +154,32 @@ const Navigation: any = ({ active, onSelect, ...props }: any) => {
           </div>
         </Modal>
         <SpaceBetween direction={'row'} style={{paddingLeft: 16, paddingRight: 16, marginTop: 15}}>
-          <Title className='hover'>CRAOK</Title>
+          <Link href='/'>
+            <div style={{display: 'flex'}}>
+              <div style={{width: 34, display: 'flex', justifyContent: 'center',}}><Image src={croak} alt='Croak logo' /></div>
+              <Title style={{marginLeft: 6}} className='hover'>CROAK</Title>
+            </div>
+          </Link>
           <Image src={hamburger} onClick={() => handleOpen()} alt='menu icon' />
         </SpaceBetween>
       </Mobile>
       <Desktop>
         <Wrapper>
           <Nav>
-            <Title className={'hover'}>Croak</Title>
+            <Link href='/'>
+              <div style={{display: 'flex'}}>
+                <div style={{width: 34, display: 'flex', justifyContent: 'center',}}><Image src={croak} alt='Croak logo' /></div>
+                <Title style={{marginLeft: 6}} className='hover'>CROAK</Title>
+              </div>
+            </Link>
           </Nav>
           <Nav>
-            <Mail className={'hover'}>help@croak.xyz</Mail>
-            <SubTitle className={'hover'}>Discord</SubTitle>
-            <SubTitle className={'hover'}>Pricing</SubTitle>
-            <SubTitle className={'hover'}>View Docs</SubTitle>
-            <CroakButton style={{marginLeft: 28}} type={'white'} onClick={() => {}} title='Sign In' />
-            <CroakButton style={{marginLeft: 28,}} type={'green'} onClick={() => {}} title='Get free API key' />
+            <Link href=''><Mail className={'hover'}>help@croak.xyz</Mail></Link>
+            <Link href=''><SubTitle className={'hover'}>Discord</SubTitle></Link>
+            <Link href='/pricing'><SubTitle className={'hover'}>Pricing</SubTitle></Link>
+            <Link href='https://glip.readme.io'><SubTitle className={'hover'}>View Docs</SubTitle></Link>
+            <Link href='/login'><CroakButton style={{marginLeft: 28}} type={'white'} onClick={() => {}} title='Sign In' /></Link>
+            <Link href='/sign-up'><CroakButton style={{marginLeft: 28,}} type={'green'} onClick={() => {}} title='Get free API key' /></Link>
           </Nav>
         </Wrapper>
       </Desktop>

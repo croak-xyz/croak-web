@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import twitter from '../assets/twitter.svg';
 import discord from '../assets/discord.svg';
 import github from '../assets/github.svg';
+import croak from '../assets/images/croak.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,7 +27,7 @@ const Title = styled.div`
     color: #000000;
 `;
 
-const Link = styled.div`
+const TLink = styled.div`
 
     font-family: 'Graphik';
     font-style: normal;
@@ -63,11 +65,18 @@ const Navigation: any = ({ active, onSelect, ...props }: any) => {
 
             <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', marginTop: 30}}>
                 <div>
-                    <Title>CROAK</Title>
-                    <Link style={{marginLeft: 0, marginTop: 32}}>View Docs</Link>
-                    <Link style={{marginLeft: 0, marginTop: 32}}>Contact us</Link>
-                    <Link style={{marginLeft: 0, marginTop: 32}}>Terms & Conditions</Link>
-                    <Link style={{marginLeft: 0, marginTop: 32}}>Privacy Policy</Link>
+                    <Link href='/'>
+                        <div style={{display: 'flex'}}>
+                            <div style={{width: 34, display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
+                                <Image src={croak} alt='Croak logo' />
+                            </div>
+                            <Title style={{marginLeft: 6}} className='hover'>CROAK</Title>
+                        </div>
+                    </Link>
+                    <Link href='https://glip.readme.io'><TLink className='hover' style={{marginLeft: 0, marginTop: 32}}>View Docs</TLink></Link>
+                    <Link href='/contact'><TLink className='hover' style={{marginLeft: 0, marginTop: 32}}>Contact us</TLink></Link>
+                    <Link href='/terms'><TLink className='hover' style={{marginLeft: 0, marginTop: 32}}>Terms & Conditions</TLink></Link>
+                    <Link href='/privacy'><TLink className='hover' style={{marginLeft: 0, marginTop: 32}}>Privacy Policy</TLink></Link>
                 </div>
                 <div style={{display: 'flex'}}>
                     <div style={{marginLeft: 18}} >
@@ -88,27 +97,39 @@ const Navigation: any = ({ active, onSelect, ...props }: any) => {
 
             <Wrapper>
 
-                <Title>CROAK</Title>
-
+                <Link href='/'>
+                    <div style={{display: 'flex'}}>
+                        <div style={{width: 34, display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
+                            <Image src={croak} alt='Croak logo' />
+                        </div>
+                        <Title style={{marginLeft: 6}} className='hover'>CROAK</Title>
+                    </div>
+                </Link>
+            
                 <div style={{display: 'flex'}}>
-                    <Link>View Docs</Link>
-                    <Link>Contact us</Link>
-                    <Link>Terms & Conditions</Link>
-                    <Link>Privacy Policy</Link>
+                    <Link href='https://glip.readme.io'><TLink className='hover'>View Docs</TLink></Link>
+                    <Link href='/contact'><TLink className='hover'>Contact us</TLink></Link>
+                    <Link href='/terms'><TLink className='hover'>Terms & Conditions</TLink></Link>
+                    <Link href='/privacy'><TLink className='hover'>Privacy Policy</TLink></Link>
                 </div>
 
                 <div style={{display: 'flex'}}>
-                    <div style={{marginLeft: 18}} >
-                        <Image src={twitter} alt='twitter page link'  />
-                    </div>
-                    <div style={{marginLeft: 18}}>
-                        <Image src={github} alt='github page link'  />
-                    </div>
-                    <div style={{marginLeft: 18}}>
-                        <Image src={discord} alt='discord page link' />
-                    </div>                        
+                    <Link href=''>
+                        <div className='hover' style={{marginLeft: 18}} >
+                            <Image src={twitter} alt='twitter page link'  />
+                        </div>
+                    </Link>
+                    <Link href=''>
+                        <div className='hover' style={{marginLeft: 18}} >
+                            <Image src={github} alt='github page link'  />
+                        </div>
+                    </Link>
+                    <Link href=''>
+                        <div className='hover' style={{marginLeft: 18}} >
+                            <Image src={discord} alt='discord page link' />
+                        </div>
+                    </Link>                                        
                 </div>
-
             </Wrapper>
         </Desktop>
     </>    

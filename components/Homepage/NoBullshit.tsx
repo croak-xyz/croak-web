@@ -22,7 +22,7 @@ const Blue = styled.div`
 
 
 const Heading = styled.div`
-    font-family: 'Graphik';
+    font-family: 'Graphik bold';
     font-style: normal;
     font-weight: 900;
     font-size: 92px;
@@ -38,6 +38,11 @@ const Heading = styled.div`
     }
 `;
 
+const Purple = styled.div`
+   color: #5351CC;
+
+`;
+
 const NoBullshit: any = ({...props }: any) => {
   
   return (
@@ -49,9 +54,7 @@ const NoBullshit: any = ({...props }: any) => {
       }}
       >
         <Blue>ONE LINE SET-UP</Blue>
-        <Heading>Build & grow 
-            web3 games
-        </Heading>
+        <Heading>Onboard web2<br></br>players to your<br></br><Purple>web3 game</Purple></Heading>
         <div style={{
             display: 'flex',
             justifyContent: props.justify,

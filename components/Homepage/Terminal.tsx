@@ -4,7 +4,8 @@ import SpaceBetween from '../FlexComponents/SpaceBetween';
 import Image from 'next/Image';
 import copy from '../../assets/copy.svg';
 import Prism from "prismjs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CroakButton from '../CroakButton';
 
 
 interface Props {
@@ -68,12 +69,14 @@ const Code = ({ code, language }: any) => {
 
   
 const Terminal: any = ({ active, onSelect, ...props }: any) => {
+    const [tab, setTab] = useState('curl');
+
   return (
     <div style={{flex: 1, display: 'flex', flexDirection: 'column', marginLeft: props.mobile ? 0 :65, marginTop: 40}}>
         <SpaceBetween direction={'row'}>
             <Horizontal justify={'flex-start'}>
-                <Tab className='hover' style={{borderTopLeftRadius: 12}} active={active == 'curl'}>curl</Tab>
-                <Tab className='hover' style={{borderTopRightRadius: 12}} active={active == 'node'}>node</Tab>
+                <Tab onClick={() => setTab('curl')} className='hover' style={{borderTopLeftRadius: 12}} active={tab == 'curl'}>curl</Tab>
+                <Tab onClick={() => setTab('node')} className='hover' style={{borderTopRightRadius: 12}} active={tab == 'node'}>node</Tab>
             </Horizontal>
             <Tab className='hover' active={false}>
                 <Image alt='copy-icon' src={copy} />
@@ -81,7 +84,10 @@ const Terminal: any = ({ active, onSelect, ...props }: any) => {
         </SpaceBetween>
         <Shell>
             <Code code={JSCode} language="javascript" />
-        </Shell>   
+        </Shell>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <CroakButton style={{marginLeft: 28, width: 141, position: 'relative', bottom: 20}} type='green' title='View docs >'/>        
+        </div>
     </div>    
   );
 }

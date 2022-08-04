@@ -25,7 +25,7 @@ const Title = styled.span`
 
 
 const MainTabs: any = ({...props }: any) => {
-    const [active, setActive] = useState('nft');
+    
 
   return (
     <div style={{
@@ -36,34 +36,34 @@ const MainTabs: any = ({...props }: any) => {
         border: '1px solid rgba(169,169,169,0.2)',
         borderRadius: 100,
         }}>
-        <Tab className='hover' onClick={() => setActive('nft')} >
+        <Tab className='hover' onClick={() => props.setActive('nft')} >
             <Title style={{
-                borderRight: active == 'nft' ? '1px solid transparent' : '1px solid transparent',
-                color: active == 'nft' ? 'white' : 'black',
+                borderRight: props.active == 'nft' ? '1px solid transparent' : '1px solid transparent',
+                color: props.active == 'nft' ? 'white' : 'black',
                 padding: '12px 18px',
-                background: active == 'nft' ? 'black' : 'white',
+                background: props.active == 'nft' ? 'black' : 'white',
                 borderRadius: 100,
                 }}>
                     NFT
             </Title>
         </Tab>
-        <Tab className='hover' onClick={() => setActive('marketplace')}>
+        <Tab className='hover' onClick={() => props.setActive('marketplace')}>
             <Title style={{
-                borderRight: active == 'marketplace' ? '1px solid transparent' : '1px solid transparent',
-                color: active == 'marketplace' ? 'white' : 'black',
+                borderRight: props.active == 'marketplace' ? '1px solid transparent' : '1px solid transparent',
+                color: props.active == 'marketplace' ? 'white' : 'black',
                 padding: '12px 18px',
-                background: active == 'marketplace' ? 'black' : 'white',
+                background: props.active == 'marketplace' ? 'black' : 'white',
                 borderRadius: 100,
                 }}>
                     Marketplace
             </Title>
         </Tab>
-        <Tab className='hover' onClick={() => setActive('wallet')}>
+        <Tab className='hover' onClick={() => props.setActive('wallet')}>
             <Title style={{
-                borderRight: active == 'wallet' ? '1px solid transparent' : '1px solid transparent',
-                color: active == 'wallet' ? 'white' : 'black',   
+                borderRight: props.active == 'wallet' ? '1px solid transparent' : '1px solid transparent',
+                color: props.active == 'wallet' ? 'white' : 'black',   
                 padding: '12px 18px',
-                background: active == 'wallet' ? 'black' : 'white',
+                background: props.active == 'wallet' ? 'black' : 'white',
                 borderRadius: 100,
                 }}>
                     Wallet

@@ -1,3 +1,4 @@
+import { cp } from 'fs/promises';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -15,13 +16,19 @@ const Button = styled.button`
 const CroakButton: any = ({...props }: any) => {
   let background: any = 'transparent';
   let border: any = '1px solid #E6E6E6';
+  let color: any = 'black';
   if(props.type == 'white') {
     background = '#fff';
     border = '1px solid #E6E6E6';
   }
   if(props.type == 'green') {
     background = 'linear-gradient(0deg, #16F89A, #16F89A),linear-gradient(0deg, #21D789, #21D789)';
-    border = '1px solid #21D789'
+    border = '1px solid rgba(33, 215, 137, 1)';
+  }
+  if(props.type == 'purple') {
+    background = 'rgba(83, 81, 204, 1';
+    border = '1px solid #39378E';
+    color = 'white'
   }
   return (
     <Button 
@@ -30,6 +37,7 @@ const CroakButton: any = ({...props }: any) => {
         borderRadius: 12,
         background: background,
         border: border,
+        color: color,
         ...props.style
       }}
       onClick={props.onClick}>

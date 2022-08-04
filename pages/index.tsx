@@ -46,12 +46,13 @@ const TrustTitle = styled.div`
 const Home: NextPage = () => {
   const [items, setItems] = useState(['Deploy Contracts', 'Universal Listing', 'Mint & Airdrop', 'Fetch & Update', 'Analytics']);
   const [active, setActive] = useState('Deploy Contracts');
+  const [activeTab, setActiveTab] = useState('nft');
 
   return (
     <div>
       <Head>
-        <title>Croak: No bullshit web3 APIs</title>
-        <meta name="description" content="Easy to use APIs for web3, NFTs" />
+        <title>Croak: Onboard web2 players to your web3 game</title>
+        <meta name="description" content="Wallet and easy to use APIs for web3, NFTs" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
@@ -68,7 +69,7 @@ const Home: NextPage = () => {
 
         <div style={{display: 'flex', justifyContent: 'center', paddingTop: 42, paddingBottom: 55}}>
           {/* <MainTabs /> */}
-          <MainTabs />
+          <MainTabs active={activeTab} setActive={setActiveTab} />
         </div>
 
         <div style={{
@@ -116,7 +117,7 @@ const Home: NextPage = () => {
       </Desktop>
 
       <Mobile>
-        
+
         <Navigation />    
 
         <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center', marginTop: 60, width: '100%', flexDirection: 'column'}}>

@@ -51,8 +51,8 @@ a {
 
 @font-face {
   font-family: 'SF Pro Display bold';
-  src: url('../assets/fonts/sfpro/SFPRODISPLAYBOLD.OTF');
-  font-weight: normal;
+  src: url('../assets/fonts/spfprodiscplayheavy.ttf');
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -80,4 +80,8 @@ a {
 .rs-modal-content {
   width: 100vw;
   height: 100vh;
+}
+
+.purple-hover:hover{
+  background-color: #FBFBFF;
 }
