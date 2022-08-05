@@ -44,9 +44,76 @@ const TrustTitle = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const [items, setItems] = useState(['Deploy Contracts', 'Universal Listing', 'Mint & Airdrop', 'Fetch & Update', 'Analytics']);
+  const [items, setItems] = useState({
+    nft:[
+      {
+        name: 'Deploy Contracts',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Universal Listing',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Mint & Airdrop',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Fetch & Update',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Analytics',
+        description: '',
+        code: ''
+      }
+    ],
+    marketplace:[
+      {
+        name: 'Primary Sale',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Secondary Sale',
+        description: '',
+        code: ''
+      },      
+    ],
+    wallet:[
+      {
+        name: 'Social Login',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Non-custodial',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'Multi-platform',
+        description: '',
+        code: ''
+      },
+      {
+        name: 'On-ramp',
+        description: '',
+        code: ''
+      },      
+    ]
+  });
   const [active, setActive] = useState('Deploy Contracts');
   const [activeTab, setActiveTab] = useState('nft');
+
+  const setActiveTabItem = (item: any) => {
+    setActiveTab(item);
+    setActive(items[item][0]['name']);
+  }
 
   return (
     <div>
@@ -69,7 +136,7 @@ const Home: NextPage = () => {
 
         <div style={{display: 'flex', justifyContent: 'center', paddingTop: 42, paddingBottom: 55}}>
           {/* <MainTabs /> */}
-          <MainTabs active={activeTab} setActive={setActiveTab} />
+          <MainTabs active={activeTab} setActive={setActiveTabItem} />
         </div>
 
         <div style={{
@@ -81,7 +148,7 @@ const Home: NextPage = () => {
           paddingBottom: 76,
           borderBottom: '1px solid rgba(236,236,236,0.4)'
           }}>
-              <Tabs items={items} active={active} setActive={setActive} />
+              <Tabs activeTab={activeTab} items={items} active={active} setActive={setActive} />
               <Terminal active={'curl'} />
         </div>
 
@@ -126,8 +193,7 @@ const Home: NextPage = () => {
         </div>
 
         <div style={{display: 'flex', justifyContent: 'center', paddingTop: 42, paddingBottom: 55}}>
-          {/* <MainTabs /> */}
-          <MainTabs />
+          <MainTabs active={activeTab} setActive={setActiveTabItem} />
         </div>
 
         <div style={{
@@ -140,7 +206,7 @@ const Home: NextPage = () => {
           borderBottom: '1px solid rgba(236,236,236,0.4)',
           flexDirection: 'column',
           }}>
-              <Tabs items={items} active={active} setActive={setActive} />
+              <Tabs activeTab={activeTab} items={items} active={active} setActive={setActive} />
               <Terminal active={'curl'} mobile={true} />
         </div>
 

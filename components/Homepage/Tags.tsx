@@ -52,9 +52,9 @@ const Tab: any = ({...props }: any) => {
 const Tabs: any = ({...props }: any) => {
    
 
-    const tabs: any = props.items.map((item: any, index: any) => {
+    const tabs: any = props.items[props.activeTab].map((item: any, index: any) => {
         return (
-            <Tab setActive={props.setActive} key={`tab-item-${index}`} active={props.active == item} title={item} />
+            <Tab setActive={props.setActive} key={`tab-item-${index}`} active={props.active == item.name} title={item.name} />
         );
     });
 
