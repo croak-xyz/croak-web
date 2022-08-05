@@ -30,28 +30,28 @@ a {
 
 @font-face {
   font-family: "Graphik";
-  src: url('../assets/fonts/graphik/GraphikRegular.otf');
+  src: url('/fonts/graphik/GraphikRegular.otf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Graphik bold";
-  src: url('../assets/fonts/graphik/GraphikBold.otf');
+  src: url('/fonts/graphik/GraphikBold.otf');
   font-weight: bold;
   font-style: bold;
 }
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sfpro/SFPRODISPLAYREGULAR.OTF');
+  src: url('/fonts/sfpro/SFPRODISPLAYREGULAR.OTF');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SF Pro Display bold';
-  src: url('../assets/fonts/spfprodiscplayheavy.ttf');
+  src: url('/fonts/spfprodiscplayheavy.ttf');
   font-weight: 900;
   font-style: normal;
 }
